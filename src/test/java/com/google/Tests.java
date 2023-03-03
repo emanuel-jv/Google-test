@@ -1,11 +1,8 @@
 package com.google;
 
 import com.google.behavior.Actions;
-import org.openqa.selenium.By;
-
+import com.google.utils.Utils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
 public class Tests {
@@ -13,28 +10,14 @@ public class Tests {
 	@Test
 	public void loginTest() {
 		
-		// Create driver
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-
-		
+		WebDriver driver = Utils.setUp();
 		Actions.goToPage(driver);
-		sleep(2000);
 		Actions.acceptCookies(driver);
-		sleep(2000);
 		Actions.searchBar(driver, "Solera");
-		sleep(2000);
+		Utils.sleep(2000);
 		Actions.searchBtn(driver);
-		driver.quit();
+		Utils.tearDown(driver);
+		
 	}
 
-	private void sleep(long m) {
-		// sleep for 3 seconds
-		try {
-			Thread.sleep(m);
-		} catch (InterruptedException e) {
-			// TODO Auto-generate catch block
-			e.printStackTrace();
-		}
-	}
 }
