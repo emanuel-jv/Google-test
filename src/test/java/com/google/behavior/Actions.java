@@ -1,10 +1,13 @@
 package com.google.behavior;
 
+import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.utils.LoadProperties;
 
@@ -32,6 +35,7 @@ public class Actions {
 	
 	public static void searchBtn (WebDriver driver) {
 		String searchBtnClass = properties.getProperty("searchBtnClassName");
+		new WebDriverWait(driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.className(searchBtnClass)));
 		WebElement searchBtn = driver.findElement(By.className(searchBtnClass));
 		searchBtn.click();
 	}

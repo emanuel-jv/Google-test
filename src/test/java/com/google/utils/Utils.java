@@ -1,9 +1,6 @@
 package com.google.utils;
 
 import java.util.Properties;
-
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -21,13 +18,4 @@ public class Utils {
 		driver.quit();
 	}
 	
-	public static void sleep(long m) {
-		// sleep for 3 seconds
-		try {
-			Thread.sleep(m);
-		} catch (InterruptedException e) {
-			// TODO Auto-generate catch block
-			e.printStackTrace();
-		}
-	}
 }

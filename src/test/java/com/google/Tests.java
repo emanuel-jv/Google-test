@@ -9,15 +9,12 @@ public class Tests {
 
 	@Test
 	public void loginTest() {
-		
 		WebDriver driver = Utils.setUp();
 		Actions.goToPage(driver);
 		Actions.acceptCookies(driver);
 		Actions.searchBar(driver, "Solera");
-		Utils.sleep(2000);
 		Actions.searchBtn(driver);
 		Utils.tearDown(driver);
-		
 	}
 
 }
